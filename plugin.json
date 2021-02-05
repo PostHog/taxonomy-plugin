@@ -10,7 +10,7 @@
             "name": "Select your default naming pattern by typing the corresponding number",
             "type": "string",
             "order": 1,
-            "default": "snake_case",
+            "default": "3",
             "required": true
         }
     ]
