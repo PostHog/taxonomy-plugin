@@ -7,7 +7,7 @@
         {
             "key": "defaultNamingConventionIndex",
             "hint": "camelCase = 1, PascalCase = 2, snake_case = 3, kebab-case = 4, spaces in between = 5",
-            "name": "Select default naming pattern",
+            "name": "Select your default naming pattern by typing the corresponding number",
             "type": "string",
             "order": 1,
             "default": "snake_case",
