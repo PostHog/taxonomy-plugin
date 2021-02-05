@@ -1,0 +1,17 @@
+{
+    "name": "Taxonomy Plugin",
+    "url": "https://github.com/PostHog/taxonomy-plugin",
+    "description": "Standardize your event names into a single pattern.",
+    "main": "index.js",
+    "config": [
+        {
+            "key": "defaultNamingConventionIndex",
+            "hint": "camelCase = 1, PascalCase = 2, snake_case = 3, kebab-case = 4, spaces in between = 5",
+            "name": "Select default naming pattern",
+            "type": "string",
+            "order": 1,
+            "default": "snake_case",
+            "required": true
+        }
+    ]
+}
