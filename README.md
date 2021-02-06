@@ -1,14 +1,13 @@
-# Timestamp Parser Plugin
+# Taxonomy Plugin
 
-Parse event timestamps into:
+Standardize your event names into a single pattern by converting all event names that don't match the pattern to the selected pattern.
 
--   Day of the week
--   Day of the month
--   Month
--   Year
+## Supported Patterns
 
-So you can explore questions like:
+The plugin can convert from any of these to all the others:
 
--   Do we get more purchases on weekdays or weekends?
--   Why does our traffic spike on Tuesdays?
--   How do users use our platform differently during the holiday season?
+* Camel Case: `helloThereWorld`
+* Pascal Case: `HelloThereWorld`
+* Snake Case: `hello_there_world`
+* Kebab Case: `hello-there-world`
+* Spaces: `hello there world`
