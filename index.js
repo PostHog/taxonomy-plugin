@@ -26,20 +26,18 @@ const transformations = [
     },
 ] 
 
-
-function setupPlugin({ config, global }) {
-    const selectedTransformationIndex = Number(config.defaultNamingConventionIndex)
-    if (Number.isNaN(selectedTransformationIndex) || selectedTransformationIndex > transformations.length) {
-        throw new Error('Invalid naming convention selection.')
-    }
-
-    global.defaultTransformationIndex = selectedTransformationIndex - 1
-
+const configSelectionMap = {
+    "camelCase": 0,
+    "PascalCase": 1,
+    "snake_case": 2,
+    "kebab-case": 3,
+    "spaces in between": 4
 }
 
-async function processEventBatch(events, { global }) {
+
+async function processEventBatch(events, { config }) {
     for (let event of events) {
-        event.event = standardizeName(event.event, transformations[global.defaultTransformationIndex])
+        event.event = standardizeName(event.event, transformations[configSelectionMap[config.defaultNamingConvention]])
     }
     return events
 }
@@ -68,6 +66,5 @@ const standardizeName = (name, desiredPattern) => {
 }
 
 module.exports = {
-    setupPlugin,
     processEventBatch
 }
