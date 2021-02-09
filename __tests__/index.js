@@ -18,7 +18,7 @@ test('converts all event names to camelCase', async () => {
         createEvent({ event: option })
     )
     
-    const eventsOutput = await processEventBatch([...events], { global: { defaultTransformationIndex: 0 } })
+    const eventsOutput = await processEventBatch([...events], { config: { defaultNamingConvention: 'camelCase' } })
     for (const event of eventsOutput) {
         expect(event).toEqual( createEvent({ event: 'helloThereWorld' }))
     }
@@ -32,7 +32,7 @@ test('converts all event names to PascalCase', async () => {
         createEvent({ event: option })
     )
     
-    const eventsOutput = await processEventBatch([...events], { global: { defaultTransformationIndex: 1 } })
+    const eventsOutput = await processEventBatch([...events], { config: { defaultNamingConvention: 'PascalCase' } })
     for (const event of eventsOutput) {
         expect(event).toEqual( createEvent({ event: 'HelloThereWorld' }))
     }
@@ -46,7 +46,7 @@ test('converts all event names to snake_case', async () => {
         createEvent({ event: option })
     )
     
-    const eventsOutput = await processEventBatch([...events], { global: { defaultTransformationIndex: 2 } })
+    const eventsOutput = await processEventBatch([...events], { config: { defaultNamingConvention: 'snake_case' } })
     for (const event of eventsOutput) {
         expect(event).toEqual( createEvent({ event: 'hello_there_world' }))
     }
@@ -61,7 +61,7 @@ test('converts all event names to kebab-case', async () => {
         createEvent({ event: option })
     )
     
-    const eventsOutput = await processEventBatch([...events], { global: { defaultTransformationIndex: 3 } })
+    const eventsOutput = await processEventBatch([...events], { config: { defaultNamingConvention: 'kebab-case' } })
     for (const event of eventsOutput) {
         expect(event).toEqual( createEvent({ event: 'hello-there-world' }))
     }
@@ -76,7 +76,7 @@ test('converts all event names to spaces in between', async () => {
         createEvent({ event: option })
     )
     
-    const eventsOutput = await processEventBatch([...events], { global: { defaultTransformationIndex: 4 } })
+    const eventsOutput = await processEventBatch([...events], { config: { defaultNamingConvention: 'spaces in between' } })
     for (const event of eventsOutput) {
         expect(event).toEqual( createEvent({ event: 'hello there world' }))
     }

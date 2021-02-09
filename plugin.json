@@ -5,10 +5,17 @@
     "main": "index.js",
     "config": [
         {
-            "key": "defaultNamingConventionIndex",
+            "key": "defaultNamingConvention",
             "hint": "camelCase = 1, PascalCase = 2, snake_case = 3, kebab-case = 4, spaces in between = 5",
             "name": "Select your default naming pattern by typing the corresponding number",
-            "type": "string",
+            "type": "choice",
+            "choices": [
+                "camelCase",
+                "PascalCase",
+                "snake_case",
+                "kebab-case",
+                "spaces in between"
+            ],
             "order": 1,
             "default": "3",
             "required": true
