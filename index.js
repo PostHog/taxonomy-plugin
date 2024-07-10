@@ -37,7 +37,9 @@ const configSelectionMap = {
 
 async function processEventBatch(events, { config }) {
     for (let event of events) {
-        event.event = standardizeName(event.event, transformations[configSelectionMap[config.defaultNamingConvention]])
+        if (!event.event.startsWith("$")) {
+            event.event = standardizeName(event.event, transformations[configSelectionMap[config.defaultNamingConvention]])
+        }
     }
     return events
 }
