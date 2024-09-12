@@ -34,10 +34,16 @@ const configSelectionMap = {
     "spaces in between": 4
 }
 
+const skippedPostHogEvents = [
+    'survey shown',
+    'survey sent',
+    'survey dismissed',
+]
+
 
 async function processEventBatch(events, { config }) {
     for (let event of events) {
-        if (!event.event.startsWith("$")) {
+        if (!event.event.startsWith("$") && !skippedPostHogEvents.includes(event.event)) {
             event.event = standardizeName(event.event, transformations[configSelectionMap[config.defaultNamingConvention]])
         }
     }
